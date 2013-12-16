@@ -939,6 +939,9 @@ class Dependency_Minification {
 			} else {
 				header( 'Content-Type: text/css; charset=utf-8' );
 			}
+			
+			header('Cache-Control: max-age='. (int) self::$options['cache_control_max_age_cache']);
+			header('Pragma:');
 
 			$cache_option_name = self::get_cache_option_name( $src_hash );
 			$cached = get_option($cache_option_name);
